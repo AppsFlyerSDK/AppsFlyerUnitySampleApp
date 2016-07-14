@@ -21,12 +21,23 @@
       <meta-data android:name="android.app.lib_name" android:value="unity" />
       <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
     </activity>
+
+
+	 <!--Deeplink Activity-->
+    <activity android:name="com.appsflyer.GetDeepLinkingActivity" android:exported="true">
+     <intent-filter>
+       <action android:name="android.intent.action.VIEW" />
+       <category android:name="android.intent.category.DEFAULT" />
+       <category android:name="android.intent.category.BROWSABLE" />
+       <data android:scheme="aftest" />
+     </intent-filter>
+   </activity>
+
 		<receiver android:name="com.appsflyer.MultipleInstallBroadcastReceiver" android:exported="true">
           <intent-filter>
               <action android:name="com.android.vending.INSTALL_REFERRER" />
           </intent-filter>
        </receiver>
-    
 
 
 <!--    <meta-data android:name="AppsFlyerDevKey" android:value="YOUR_DEV_KEY"/>

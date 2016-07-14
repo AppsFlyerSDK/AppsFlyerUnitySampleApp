@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class StartUp : MonoBehaviour {
+	public GameObject text;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +29,7 @@ public class StartUp : MonoBehaviour {
 		AppsFlyer.setAppID ("YOUR_PACKAGE_NAME"); 
 
 		// for getting the conversion data
-		AppsFlyer.loadConversionData("AppsFlyerTrackerCallbacks","didReceiveConversionData", "didReceiveConversionDataWithError");
+		AppsFlyer.loadConversionData("StartUp","didReceiveConversionData", "didReceiveConversionDataWithError");
 
 		// for in app billing validation
 //		AppsFlyer.createValidateInAppListener ("AppsFlyerTrackerCallbacks", "onInAppBillingSuccess", "onInAppBillingFailure"); 
@@ -50,5 +52,14 @@ public class StartUp : MonoBehaviour {
 		eventValue.Add("af_currency","USD");
 		AppsFlyer.trackRichEvent("af_purchase", eventValue);
 		AF_Sample_BGScript.pressed ();
+	}
+
+	public void didReceiveConversionData(string conversionData) {
+		print ("AppsFlyerTrackerCallbacks:: got conversion data = " + conversionData);
+		if (conversionData.Contains ("Non")) {
+			text.GetComponent<Text> ().text = "Non-Organic Install";
+		} else {
+			text.GetComponent<Text> ().text = "Organic Install";
+		}	
 	}
 }

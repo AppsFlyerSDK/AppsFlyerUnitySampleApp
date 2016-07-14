@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
+
 
 public class AppsFlyerTrackerCallbacks : MonoBehaviour {
-	public GameObject text;
+	
 	// Use this for initialization
 	void Start () {
 		print ("AppsFlyerTrackerCallbacks on Start");
@@ -17,11 +17,6 @@ public class AppsFlyerTrackerCallbacks : MonoBehaviour {
 	
 	public void didReceiveConversionData(string conversionData) {
 		print ("AppsFlyerTrackerCallbacks:: got conversion data = " + conversionData);
-		if (conversionData.Contains ("Non")) {
-			text.GetComponent<Text> ().text = "Non-Organic Install";
-		} else {
-			text.GetComponent<Text> ().text = "Organic Install";
-		}
 	}
 	
 	public void didReceiveConversionDataWithError(string error) {
