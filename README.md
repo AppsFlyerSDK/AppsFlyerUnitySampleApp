@@ -49,4 +49,3 @@ For a Non-Organic install - click the "Track Event" to track a custom purchase e
 [iOS Integration Guide](http://support.appsflyer.com/entries/25458906-iOS-SDK-Integration-Guide-v2-5-3-x-New-API-).
 
 [Android Integration Guide](http://support.appsflyer.com/entries/22801952-Android-SDK-Integration-Guide).
-
