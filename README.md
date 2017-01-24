@@ -29,7 +29,8 @@ In "StartUp.cs", enter your AppsFlyer Dev Key inside the "init"/"setAppsFlyerKey
 
 	</code></pre>
 
-<h3>Note: If you are building for Android, you should change the project's package name in Player Setting.</h3>
+<h3>Android: Change the project's package name in Player Setting.</h3>
+<h3>iOS: Make sure to that Security.framework is added to XCode</h3>
 
 Go to your AppsFlyer dashboard and add the app using the Package Name / App ID you configured in the code.
 
