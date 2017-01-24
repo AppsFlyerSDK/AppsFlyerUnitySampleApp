@@ -12,6 +12,7 @@ public class StartUp : MonoBehaviour {
 		Application.runInBackground = true;
 		Screen.orientation = ScreenOrientation.Portrait;
 		DontDestroyOnLoad (this);
+		AppsFlyer.setIsDebug(true);
 
 		#if UNITY_IOS 
 
@@ -28,16 +29,14 @@ public class StartUp : MonoBehaviour {
 		#elif UNITY_ANDROID
 
 		AppsFlyer.init ("YOUR_DEV_KEY");
-		AppsFlyer.setIsDebug(true);
 
-		AppsFlyer.setAppID ("YOUR_PACKAGE_NAME"); 
+		AppsFlyer.setAppID ("YOUR_APP_ID"); 
 
 		// for getting the conversion data
-		AppsFlyer.loadConversionData("AppsFlyerTrackerCallbacks","onAppOpenAttribution", "onAppOpenAttributionFailure");
-		AppsFlyer.loadConversionData("StartUp","didReceiveConversionData", "didReceiveConversionDataWithError");
+		AppsFlyer.loadConversionData("StartUp");
 
 		// for in app billing validation
-		// AppsFlyer.createValidateInAppListener ("AppsFlyerTrackerCallbacks", "onInAppBillingSuccess", "onInAppBillingFailure"); 
+//		 AppsFlyer.createValidateInAppListener ("AppsFlyerTrackerCallbacks", "onInAppBillingSuccess", "onInAppBillingFailure"); 
 
 		//For Android Uninstall
 		AppsFlyer.setGCMProjectNumber ("YOUR_GCM_PROJECT_NUMBER");
@@ -95,4 +94,15 @@ public class StartUp : MonoBehaviour {
 	public void didReceiveConversionDataWithError(string error) {
 		print ("AppsFlyerTrackerCallbacks:: got conversion data error = " + error);
 	}
+
+	public void onAppOpenAttribution(string validateResult) {
+		print ("AppsFlyerTrackerCallbacks:: got onAppOpenAttribution  = " + validateResult);
+
+	}
+
+	public void onAppOpenAttributionFailure (string error) {
+		print ("AppsFlyerTrackerCallbacks:: got onAppOpenAttributionFailure error = " + error);
+
+	}
+
 }
