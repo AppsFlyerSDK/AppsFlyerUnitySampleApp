@@ -3,3 +3,5 @@ ProjectSettings
 iOS_Build
 *.meta
 UnityLockfile
+Temp
+*.apk
