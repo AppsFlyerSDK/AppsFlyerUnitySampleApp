@@ -28,9 +28,9 @@ public class StartUp : MonoBehaviour {
 
 		#elif UNITY_ANDROID
 
-		AppsFlyer.init ("YOUR_DEV_KEY");
+		AppsFlyer.init ("WdpTVAcYwmxsaQ4WeTspmh");
 
-		AppsFlyer.setAppID ("YOUR_APP_ID"); 
+		//AppsFlyer.setAppID ("YOUR_APP_ID"); 
 
 		// for getting the conversion data
 		AppsFlyer.loadConversionData("StartUp");
@@ -39,7 +39,8 @@ public class StartUp : MonoBehaviour {
 //		 AppsFlyer.createValidateInAppListener ("AppsFlyerTrackerCallbacks", "onInAppBillingSuccess", "onInAppBillingFailure"); 
 
 		//For Android Uninstall
-		AppsFlyer.setGCMProjectNumber ("YOUR_GCM_PROJECT_NUMBER");
+		//AppsFlyer.setGCMProjectNumber ("YOUR_GCM_PROJECT_NUMBER");
+
 
 		#endif
 	}
@@ -72,7 +73,7 @@ public class StartUp : MonoBehaviour {
 	//A custom event tracking
 	public void Purchase(){
 		Dictionary<string, string> eventValue = new Dictionary<string,string> ();
-		eventValue.Add("af_revenue","200");
+		eventValue.Add("af_revenue","300");
 		eventValue.Add("af_content_type","category_a");
 		eventValue.Add("af_content_id","1234567");
 		eventValue.Add("af_currency","USD");
